@@ -1,0 +1,27 @@
+%h1 Listing recommendations
+
+%table
+  %thead
+    %tr
+      %th Recommendation
+      %th Font stack
+      %th Pull request url
+      %th Team
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @recommendations.each do |recommendation|
+      %tr
+        %td= recommendation.recommendation
+        %td= recommendation.font_stack
+        %td= recommendation.pull_request_url
+        %td= recommendation.team_id
+        %td= link_to 'Show', recommendation
+        %td= link_to 'Edit', edit_recommendation_path(recommendation)
+        %td= link_to 'Destroy', recommendation, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Recommendation', new_recommendation_path

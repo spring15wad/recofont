@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Url:
+  = @example.url
+%p
+  %b File:
+  = @example.file
+%p
+  %b Recommendation:
+  = @example.recommendation_id
+
+= link_to 'Edit', edit_example_path(@example)
+\|
+= link_to 'Back', examples_path

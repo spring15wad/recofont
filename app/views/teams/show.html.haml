@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Project name:
+  = @team.project_name
+%p
+  %b Proposal:
+  = @team.proposal
+%p
+  %b Github repo:
+  = @team.github_repo
+
+= link_to 'Edit', edit_team_path(@team)
+\|
+= link_to 'Back', teams_path

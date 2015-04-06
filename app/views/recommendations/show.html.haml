@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Recommendation:
+  = @recommendation.recommendation
+%p
+  %b Font stack:
+  = @recommendation.font_stack
+%p
+  %b Pull request url:
+  = @recommendation.pull_request_url
+%p
+  %b Team:
+  = @recommendation.team_id
+
+= link_to 'Edit', edit_recommendation_path(@recommendation)
+\|
+= link_to 'Back', recommendations_path

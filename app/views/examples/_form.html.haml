@@ -1,0 +1,19 @@
+= form_for @example do |f|
+  - if @example.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@example.errors.count, "error")} prohibited this example from being saved:"
+      %ul
+        - @example.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :url
+    = f.text_field :url
+  .field
+    = f.label :file
+    = f.text_field :file
+  .field
+    = f.label :recommendation_id
+    = f.number_field :recommendation_id
+  .actions
+    = f.submit 'Save'

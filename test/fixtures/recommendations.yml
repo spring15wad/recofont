@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  recommendation: 
+  font_stack: MyText
+  pull_request_url: MyString
+  team_id: 1
+
+two:
+  recommendation: 
+  font_stack: MyText
+  pull_request_url: MyString
+  team_id: 1
