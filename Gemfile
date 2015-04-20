@@ -45,5 +45,6 @@ group :development, :test do
   gem 'spring'
 end
 
-# Use OmniAuth for user authentication
+# Use GitHub's OmniAuth for user authentication
 gem 'omniauth'
+gem 'omniauth-github'
