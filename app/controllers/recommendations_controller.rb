@@ -19,7 +19,7 @@ class RecommendationsController < ApplicationController
     @user = User.where(uid: current_user.uid).take
     @team = Team.where(id: @user.team_id).take
     @recommendation = Recommendation.where(team_id: @user.team_id).take
-    @example = Example.where(recommendation_id: @recommendation.id)
+    @examples = Example.where(recommendation: @recommendation).to_a
   end
 
   # GET /recommendations/new
