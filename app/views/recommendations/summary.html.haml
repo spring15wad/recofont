@@ -1,0 +1,41 @@
+%h1 RecoFont
+%h2 Font and type recommendations for &ldquo;COM 381 Web Application Development&rdquo;
+
+%p#notice= notice
+
+.info
+  %p User:
+  = user.username
+.info
+  %p Team:
+  = team.project_name
+.info
+  %p Proposal: 
+  = link_to (team.proposal, team.proposal)
+.info
+  %p Repository:
+  = link_to (team.github_repo, team.github_repo)
+
+%p
+  %b Recommendation:
+  =  link_to ('Screenshot', recommendation.recommendation)
+%p
+  %b Font stack:
+  = @recommendation.font_stack
+%p
+  %b Pull request url:
+  = @recommendation.pull_request_url
+
+/%p
+/  %b Team:
+/  = @recommendation.team_id
+
+%ul Examples
+  - @examples.each do |example|
+    %li= example.url.nil? ? link_to ('File', example.file) : link_to ('URL' , example.url)
+      %ul
+        %li= example.description
+
+%nav
+  = link_to( button_tag('Change or modify team'), '/teams#change' )
+  = link_to( button_tag('Logout'), '/logout' )
