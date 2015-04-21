@@ -1,9 +1,20 @@
 Rails.application.routes.draw do
+
   resources :recommendations
 
   resources :examples
 
   resources :teams
+
+  get '/auth/:provider', to: lambda{|env| [404, {}, ["Not Found"]]}, as: 'login'
+  get '/auth/:provider/callback', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy', as: 'logout'
+
+  #get '/account', to: 'account#index'
+
+  #namespace :account do
+  #  resources :ads, except: ['index', 'show']
+  #end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
