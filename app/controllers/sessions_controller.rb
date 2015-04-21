@@ -1,6 +1,12 @@
 class SessionsController < ApplicationController
 
-  # Create a new session upon successful authentication via Twitter
+  #def create
+  #  auth_hash = request.env['omniauth.auth']
+  #
+  #  render :text => auth_hash.inspect
+  #end
+
+  #Create a new session upon successful authentication via Twitter(?)
   def create
       # find_or_create_from_hash method is defined in app/models/users.rb
       # the method finds an existing user, or creates a new one
