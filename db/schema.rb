@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20150420201842) do
     t.string  "username"
     t.string  "email"
     t.string  "uid"
+    t.string  "provider"
     t.integer "team_id"
   end
 

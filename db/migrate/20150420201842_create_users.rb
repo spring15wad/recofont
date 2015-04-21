@@ -4,6 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :username
       t.string :email
       t.string :uid
+      t.string :provider
       t.belongs_to :team, index: true
     end
     add_foreign_key :users, :teams
