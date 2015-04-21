@@ -11,6 +11,5 @@ Rails.application.config.middleware.use OmniAuth::Builder do
 # then get loaded into variables in the Rails app 
 # by the following…
 
-use OmniAuth::Builder do
   provider :github, ENV['GH_ID'], ENV['GH_Secret']
 end
