@@ -1,5 +1,6 @@
 class RecommendationsController < ApplicationController
   before_action :set_recommendation, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /recommendations
   # GET /recommendations.json
@@ -10,6 +11,15 @@ class RecommendationsController < ApplicationController
   # GET /recommendations/1
   # GET /recommendations/1.json
   def show
+  end
+
+  # GET /recommendations/summary
+  def summary
+    #@ads = Ad.where(user_id: current_user.id)
+    @user = User.where(uid: current_user.id)
+    @team = Team.where(team_id: user.team_id)
+    @recommendation = Recommendation.where(team_id: user.team_id)
+    @example = Example.where(recommendation_id: recommendation.id)
   end
 
   # GET /recommendations/new
