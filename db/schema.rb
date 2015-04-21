@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150420201842) do
+ActiveRecord::Schema.define(version: 20150421150038) do
 
   create_table "examples", force: :cascade do |t|
     t.string   "url"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20150420201842) do
     t.integer  "recommendation_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.text     "description"
   end
 
   create_table "recommendations", force: :cascade do |t|
