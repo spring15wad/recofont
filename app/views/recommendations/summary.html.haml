@@ -11,10 +11,10 @@
   = @team.project_name
 .info
   %p Proposal: 
-  = link_to('team.proposal', @team.proposal )
+  = link_to( 'link', @team.proposal )
 .info
   %p Repository:
-  = link_to('team.github_repo', @team.github_repo )
+  = link_to( @team.github_repo, @team.github_repo )
 
 %p
   %b Recommendation:
@@ -30,10 +30,10 @@
 %ul
   - @examples.each do |example|
     %li
-      = example.url
-/    = example.url.nil? ? link_to('File', example.file) : link_to('URL' , example.url)
-/      %ul
-/        %li= example.description
+      = example.url.nil? ? link_to('File', example.file) : link_to( example.url , example.url)
+      %ul
+        %li
+          = example.description.nil? ? example.recommendation_id : example.description
 
 %nav
   = link_to( button_tag('Change or modify team'), '/teams#change' )
