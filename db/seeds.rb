@@ -1,7 +1,6 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Team.create!([
+  {project_name: "RollingRead", proposal: "https://github.com/spring15wad/metawad/blob/master/beta-app-proposal.md", github_repo: "https://github.com/spring15wad/rollingread"}
+])
+User.create!([
+  {username: "M.J. Freeman", email: "", uid: "5863302", provider: "github", team_id: nil}
+])

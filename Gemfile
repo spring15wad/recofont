@@ -45,6 +45,9 @@ group :development, :test do
   gem 'spring'
 end
 
+# Dump those DBs into a seed -- usage: ‘rake db:seed:dump’
+gem 'seed_dump'
+
 # Use GitHub's OmniAuth for user authentication
 gem 'omniauth'
 gem 'omniauth-github'
