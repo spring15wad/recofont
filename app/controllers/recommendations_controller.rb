@@ -16,10 +16,10 @@ class RecommendationsController < ApplicationController
   # GET /recommendations/summary
   def summary
     #@ads = Ad.where(user_id: current_user.id)
-    @user = User.where(uid: current_user.id)
-    @team = Team.where(team_id: user.team_id)
-    @recommendation = Recommendation.where(team_id: user.team_id)
-    @example = Example.where(recommendation_id: recommendation.id)
+    @user = User.where(uid: current_user.id).take
+    @team = Team.where(id: @user.team_id).take
+    @recommendation = Recommendation.where(team_id: @user.team_id).take
+    @example = Example.where(recommendation_id: @recommendation.id)
   end
 
   # GET /recommendations/new
