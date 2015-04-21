@@ -35,4 +35,5 @@ bower.json
 .powenv
 
 # Place to keep the API tokens
+**/omniauth-keys.txt
 /vault
