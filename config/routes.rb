@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get '/change_teams', to: 'teams#change'
+
   resources :recommendations
 
   resources :examples

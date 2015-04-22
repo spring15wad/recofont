@@ -1,0 +1,47 @@
+%h1 Choose or change your team
+
+.info
+  %p User:
+  = @user.username
+.info
+  %p Team:
+  = @teams.find(@user.team_id).project_name
+
+/= form_for @user do |u|
+/  .field
+/    = f.label "Select team"
+/    = f.integer :team_id
+/  .actions
+/    = f.submit 'Save'
+
+%h3 All teams
+
+%table
+  %thead
+    %tr
+      %th Project name
+      %th Proposal
+      %th Github repo
+      %th Team members
+
+      
+  %tbody
+    - @teams.each do |team|
+      %tr
+        %td= team.project_name
+        %td= team.proposal
+        %td= team.github_repo
+        %td
+          - @team_members = @grouped_users.select { |k,v| k == team.id }
+          - @team_members.each do |team_id, grouped|
+            - grouped.each do |member|
+              %p member.username
+
+/        %td= link_to 'Show', team
+/        %td= link_to 'Edit', edit_team_path(team)
+/        %td= link_to 'Destroy', team, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'Edit Your Team', edit_team_path(@teams.find(@user.team_id))
+= link_to 'New Team', new_team_path

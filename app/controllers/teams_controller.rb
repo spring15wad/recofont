@@ -7,6 +7,14 @@ class TeamsController < ApplicationController
     @teams = Team.all
   end
 
+  # ¿ GET /team/change ?
+  def change
+    @teams = Team.all
+    @user = User.where(uid: current_user.uid).take
+    @users_all = User.order('team_id')
+    @grouped_users = @users_all.group_by { |user| user.team_id }
+  end
+
   # GET /teams/1
   # GET /teams/1.json
   def show
