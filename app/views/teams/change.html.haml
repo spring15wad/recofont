@@ -20,8 +20,8 @@
   %thead
     %tr
       %th Project name
-      %th Proposal
       %th Github repo
+      %th Proposal
       %th Team members
 
       
@@ -29,13 +29,14 @@
     - @teams.each do |team|
       %tr
         %td= team.project_name
-        %td= team.proposal
-        %td= team.github_repo
+        %td= link_to(team.github_repo.match('g.*$')[0], team.github_repo)
+        %td= link_to(team.proposal.match('/[^/]*$')[0], team.proposal)
         %td
-          - @team_members = @grouped_users.select { |k,v| k == team.id }
-          - @team_members.each do |team_id, grouped|
-            - grouped.each do |member|
-              %p member.username
+          %ul
+            - @team_members = @grouped_users.select { |k,v| k == team.id }
+            - @team_members.each do |team_id, grouped|
+              - grouped.each do |member|
+                %li= member.username
 
 /        %td= link_to 'Show', team
 /        %td= link_to 'Edit', edit_team_path(team)
