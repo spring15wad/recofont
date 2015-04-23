@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'recommendations#summary'
 
   resources :recommendations
 
@@ -16,7 +17,6 @@ Rails.application.routes.draw do
   #  resources :ads, except: ['index', 'show']
   #end
 
-  root 'recommendations#summary'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
