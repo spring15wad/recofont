@@ -1,20 +1,7 @@
-= form_for(@user, url: users_path) do |f|
+= form_for @user do |f|
 
   .field
     = f.label "Select team"
     = f.collection_select :team_id, Team.order('project_name'), :id, :project_name, prompt: true
   .actions
     = f.submit 'Save'
-
-
-/    = f.collection_select :source_id, Source.order('short_source'), :id, :short_source, prompt: true
-/    = f.collection_select :team_id, Team.order('project_name'), :id, :project_name, prompt: true
-/
-/collection_select(:post, :author_id, Author.all, :id, :name_with_initial, prompt: true)
-/
-/<select name="post[author_id]">
-/  <option value="">Please select</option>
-/  <option value="1" selected="selected">D. Heinemeier Hansson</option>
-/  <option value="2">D. Thomas</option>
-/  <option value="3">M. Clark</option>
-/</select>
