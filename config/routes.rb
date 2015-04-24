@@ -17,8 +17,6 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy', as: 'logout'
 
-  #get '/account', to: 'account#index'
-
   #namespace :account do
   #  resources :ads, except: ['index', 'show']
   #end
