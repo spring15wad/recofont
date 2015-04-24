@@ -1,4 +1,4 @@
-%h1 Choose or change your team
+%h1 Choose or modify your team
 
 .info
   %p User:
@@ -7,8 +7,9 @@
   %p Team:
   = @teams.find(@user.team_id).project_name
 
-.info
-  = render 'pickteam'
+= render 'pickteam'
+
+%br
 
 %h3 All teams
 
@@ -24,15 +25,18 @@
   %tbody
     - @teams.each do |team|
       %tr
-        %td= team.project_name
-        %td= link_to(team.github_repo.match('g.*$')[0], team.github_repo)
-        %td= link_to(team.proposal.match('/[^/]*$')[0], team.proposal)
-        %td
-          %ul
-            - @team_members = @grouped_users.select { |k,v| k == team.id }
-            - @team_members.each do |team_id, grouped|
-              - grouped.each do |member|
-                %li= member.username
+        - if team.id == 1
+          = nada
+        - else
+          %td= team.project_name
+          %td= link_to(team.github_repo.match('g.*$')[0], team.github_repo)
+          %td= link_to(team.proposal.match('/[^/]*$')[0], team.proposal)
+          %td
+            %ul
+              - @team_members = @grouped_users.select { |k,v| k == team.id }
+              - @team_members.each do |team_id, grouped|
+                - grouped.each do |member|
+                  %li= member.username
 
 %br
 
