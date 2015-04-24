@@ -39,14 +39,4 @@ ActiveRecord::Schema.define(version: 20150421150038) do
     t.datetime "updated_at",   null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string  "username"
-    t.string  "email"
-    t.string  "uid"
-    t.string  "provider"
-    t.integer "team_id"
-  end
-
-  add_index "users", ["team_id"], name: "index_users_on_team_id"
-
 end

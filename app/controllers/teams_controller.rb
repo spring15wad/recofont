@@ -7,7 +7,7 @@ class TeamsController < ApplicationController
     @teams = Team.all
   end
 
-  # ¿ GET /team/change ?
+  # ¿ GET /teams/change ?
   def change
     @teams = Team.all
     @user = User.where(uid: current_user.uid).take

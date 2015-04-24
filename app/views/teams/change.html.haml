@@ -7,12 +7,8 @@
   %p Team:
   = @teams.find(@user.team_id).project_name
 
-/= form_for @user do |u|
-/  .field
-/    = f.label "Select team"
-/    = f.integer :team_id
-/  .actions
-/    = f.submit 'Save'
+.info
+  = render 'pickteam'
 
 %h3 All teams
 
@@ -37,10 +33,6 @@
             - @team_members.each do |team_id, grouped|
               - grouped.each do |member|
                 %li= member.username
-
-/        %td= link_to 'Show', team
-/        %td= link_to 'Edit', edit_team_path(team)
-/        %td= link_to 'Destroy', team, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

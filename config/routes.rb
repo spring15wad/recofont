@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'users/edit'
-
-  get 'users/update'
-
   get '/change_teams', to: 'teams#change'
 
   resources :recommendations
