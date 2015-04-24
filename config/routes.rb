@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
-  root 'recommendations#summary'
+  root 'teams#landing', as: 'landing'
 
-  resources :users
+  get '/summary', to: 'recommendations#summary', as: 'summary'
 
   get '/change_teams', to: 'teams#change', as: 'pick_team'
 
-  resources :recommendations
+  resources :users
 
+  resources :recommendations
+  
   resources :examples
 
   resources :teams
