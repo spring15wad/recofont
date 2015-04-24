@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :users
 
-  get '/change_teams', to: 'teams#change'
+  get '/change_teams', to: 'teams#change', as: 'pick_team'
 
   resources :recommendations
 
