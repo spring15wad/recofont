@@ -1,0 +1,16 @@
+%p#notice= notice
+
+%p
+  %b Username:
+  = @user.username
+%p
+  %b Uid:
+  = @user.uid
+%p
+  %b Provider:
+  = @user.provider
+%p
+  %b Team:
+  = @user.team.project_name
+
+= link_to 'Back', pick_team_path

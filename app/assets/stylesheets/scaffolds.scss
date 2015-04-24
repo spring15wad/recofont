@@ -32,14 +32,17 @@ a {
 div {
   &.field, &.actions {
     margin-bottom: 10px;
+    display: inline-block;
+    padding: 0.375em 0.375em 0.375em 0.375em;
   }
 }
 
-div.info {
+.info, .info p {
   display: inline-block;
-  padding: 0.375em 3.750em 0.375em 0.375em;
-  overflow: hidden;
+  padding: 0.375em 3.75em 0.375em 0.375em;
 }
+
+
 
 #notice {
   color: green;

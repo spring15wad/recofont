@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150421150038) do
+ActiveRecord::Schema.define(version: 20150424201700) do
 
   create_table "examples", force: :cascade do |t|
     t.string   "url"
@@ -40,11 +40,12 @@ ActiveRecord::Schema.define(version: 20150421150038) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string  "username"
-    t.string  "email"
-    t.string  "uid"
-    t.string  "provider"
-    t.integer "team_id"
+    t.string   "username"
+    t.string   "uid"
+    t.string   "provider"
+    t.integer  "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "users", ["team_id"], name: "index_users_on_team_id"

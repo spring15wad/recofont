@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root 'recommendations#summary'
 
+  resources :users
+
+  get '/change_teams', to: 'teams#change', as: 'pick_team'
+
   resources :recommendations
 
   resources :examples

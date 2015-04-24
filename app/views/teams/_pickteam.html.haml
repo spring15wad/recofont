@@ -1,0 +1,7 @@
+= form_for @user do |f|
+
+  .field
+    = f.label "Select team"
+    = f.collection_select :team_id, Team.order('project_name'), :id, :project_name, prompt: true
+  .actions
+    = f.submit 'Save'
