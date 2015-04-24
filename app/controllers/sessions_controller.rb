@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   #  render :text => auth_hash.inspect
   #end
 
-  #Create a new session upon successful authentication via Twitter(?)
+  #Create a new session upon successful authentication via GitHub(?)
   def create
       # find_or_create_from_hash method is defined in app/models/users.rb
       # the method finds an existing user, or creates a new one
@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       # current_user= method defined in app/controllers/application_controller.rb
       # the method sets the session variables
     self.current_user = @user
-    redirect_to '/'
+    redirect_to '/summary'
   end
 
   # Destroy session (in other words, log out)

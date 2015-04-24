@@ -26,9 +26,13 @@ class ApplicationController < ActionController::Base
   private
 
   def authenticate_user!
+    enrolled = [ "170719", "10054112", "10679896", "3185208", "8574294", "5863302", "6386800", "5012820", "8630916", "8679001", "10623351", "11053292", "10619908", "8608763" ]
     # could this be unless self.user_signed_in? ?
     if session[:user_id].nil?
       redirect_to '/auth/github', alert: 'Please log in'
+    # check against enrollment - 5863302  
+    elsif !enrolled.include?(User.find(session[:user_id]).uid)
+      redirect_to '/logout', alert: "Enrolled in COM381 you are not."
     end
   end
 
