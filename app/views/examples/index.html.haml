@@ -10,7 +10,7 @@
       %th
       %th
       %th
-      
+
   %tbody
     - @examples.each do |example|
       %tr
@@ -25,3 +25,5 @@
 %br
 
 = link_to 'New Example', new_example_path
+
+= link_to 'Download', item_download_path(@item), disable_with: 'Downloading...'

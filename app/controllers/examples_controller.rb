@@ -11,6 +11,12 @@ class ExamplesController < ApplicationController
     end
   end
 
+  def download
+    item = Item.find params[:id]
+
+    send_data item.file, filename: item.name, type: 'zip', disposition: 'attachment'
+  end
+
   # GET /examples
   # GET /examples.json
   def index
