@@ -1,6 +1,16 @@
 class ExamplesController < ApplicationController
   before_action :set_example, only: [:show, :edit, :update, :destroy]
 
+  def create
+    @item = Item.new
+    @item.file = params[:item][:file]
+    if item.save
+      redirect_to @item
+    else
+      render 'new'
+    end
+  end
+
   # GET /examples
   # GET /examples.json
   def index
