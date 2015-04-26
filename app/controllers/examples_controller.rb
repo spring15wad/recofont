@@ -14,7 +14,7 @@ class ExamplesController < ApplicationController
   def download
     item = Item.find params[:id]
 
-    send_data item.file, filename: item.name, type: 'zip', disposition: 'attachment'
+    send_data item.file, filename: item.name, type: 'application/pdf', disposition: 'attachment'
   end
 
   # GET /examples

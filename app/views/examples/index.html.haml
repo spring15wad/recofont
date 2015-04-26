@@ -21,9 +21,8 @@
         %td= link_to 'Show', example
         %td= link_to 'Edit', edit_example_path(example)
         %td= link_to 'Destroy', example, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Download', item_download_path(@item), disable_with: 'Downloading...'
 
 %br
 
 = link_to 'New Example', new_example_path
-
-= link_to 'Download', item_download_path(@item), disable_with: 'Downloading...'
