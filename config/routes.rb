@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get '/change_teams', to: 'teams#change', as: 'pick_team'
 
-  get '/items/:id/download', as: :item_download
+#  get '/examples/:id/download', as: 'example_download'
 
   resources :users
 

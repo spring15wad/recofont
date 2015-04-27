@@ -3,8 +3,7 @@
 %table
   %thead
     %tr
-      %th Url
-      %th File
+      %th Link
       %th Description
       %th Recommendation
       %th
@@ -14,14 +13,13 @@
   %tbody
     - @examples.each do |example|
       %tr
-        %td= example.url
-        %td= example.file
+        %td= example.url.nil? ? link_to('Download', item_download_path(example.file), disable_with: 'Downloading...') : link_to(example.url.match('[^/].+$',6)[0], example.url)
         %td= example.description
         %td= example.recommendation_id
         %td= link_to 'Show', example
         %td= link_to 'Edit', edit_example_path(example)
         %td= link_to 'Destroy', example, :method => :delete, :data => { :confirm => 'Are you sure?' }
-        %td= link_to 'Download', item_download_path(@item), disable_with: 'Downloading...'
+/       %td= link_to 'Download', item_download_path(example.file), disable_with: 'Downloading...'
 
 %br
 

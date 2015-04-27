@@ -1,5 +1,5 @@
 Example.create!([
-  {url: "none", file: "", recommendation_id: 1, description: "none"},
+  {url: "https://example.com", file: "", recommendation_id: 1, description: "none"},
   {url: "https://github.com/intridea/omniauth/blob/master/README.md", file: "", recommendation_id: 2, description: "Foo and Bar."}
 ])
 Recommendation.create!([
