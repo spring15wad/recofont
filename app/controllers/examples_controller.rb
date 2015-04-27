@@ -13,7 +13,7 @@ class ExamplesController < ApplicationController
 
   def download
     example = Examples.find(params[:id])
-    send_data example.file, filename: example.id, type: 'application/pdf', disposition: 'attachment'
+    send_data example.filedata, filename: example.filename, type: example.mime_type, disposition: 'attachment'
   end
 
   # GET /examples
@@ -77,13 +77,14 @@ class ExamplesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_example
-      @example = Example.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def example_params
-      params.require(:example).permit(:url, :file, :recommendation_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_example
+    @example = Example.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def example_params
+    params.require(:example).permit(:url, :file, :recommendation_id)
+  end
 end
