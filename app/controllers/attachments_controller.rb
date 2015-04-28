@@ -26,6 +26,12 @@ class AttachmentsController < ApplicationController
   def create
     @attachment = Attachment.new(attachment_params)
 
+    if params[:attachment][:data]
+      t.filedata  = params[:attachment][:data].read
+      t.filename  = params[:attachment][:data].original_filename
+      t.mime_type = params[:attachment][:data].content_type
+    end
+
     respond_to do |format|
       if @attachment.save
         format.html { redirect_to @attachment, notice: 'Attachment was successfully created.' }
@@ -40,6 +46,11 @@ class AttachmentsController < ApplicationController
   # PATCH/PUT /attachments/1
   # PATCH/PUT /attachments/1.json
   def update
+    if params[:attachment][:data]
+      t.filedata  = params[:attachment][:data].read
+      t.filename  = params[:attachment][:data].original_filename
+      t.mime_type = params[:attachment][:data].content_type
+    end
     respond_to do |format|
       if @attachment.update(attachment_params)
         format.html { redirect_to @attachment, notice: 'Attachment was successfully updated.' }

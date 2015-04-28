@@ -1,6 +1,9 @@
+Attachment.create!([
+  {filename: "NA.png" , mime_type: "image/png", example_id: "2"}
+])
 Example.create!([
-  {url: "https://example.com", recommendation_id: 1, description: "none", filename: "", filedata: "", mime_type: ""},
-  {url: "https://github.com/intridea/omniauth/blob/master/README.md", recommendation_id: 2, description: "Foo and Bar.", filename: "", filedata: "", mime_type: ""}
+  {description: "none", url: "https://example.com", recommendation_id: 1},
+  {description: "Foo and Bar.", url: "https://github.com/intridea/omniauth/blob/master/README.md", recommendation_id: 2 }
 ])
 Recommendation.create!([
   {recommendation: "none", font_stack: "none", pull_request_url: "none", team_id: 1},

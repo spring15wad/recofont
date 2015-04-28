@@ -11,7 +11,7 @@
   = @example.recommendation_id
 %p
   %b Attacment:
-  = @example.attachment_id.nil? ? 'none' : @example.attachment_id
+/  = @attachment.where("example_id = :example").nil? ? 'none' : @attachment.where("example_id = :example").first.filename
 
 = link_to 'Edit', edit_example_path(@example)
 \|

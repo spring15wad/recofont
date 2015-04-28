@@ -4,10 +4,12 @@ class ExamplesController < ApplicationController
   # GET /examples
   def index
     @examples = Example.all
+    @attachments = Attachment.all
   end
 
   # GET /examples/1
   def show
+    @attachments = Attachment.all
   end
 
   # GET /examples/new
