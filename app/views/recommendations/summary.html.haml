@@ -4,26 +4,30 @@
 %p#notice= notice
 
 .info
-  %p User:
-  = @user.username
+  %p
+    User:
+    = @user.username
 .info
-  %p Team:
-  = @team.project_name
+  %p
+    Team:
+    = @team.project_name
 .info
-  %p Repository:
-  = link_to( @team.github_repo.match('g.*$')[0], @team.github_repo )
+  %p
+    Repository:
+    = link_to( @team.github_repo.match('g.*$')[0], @team.github_repo )
 .info
-  %p Proposal: 
-  = link_to( @team.proposal.match('/([^/]*$)')[1], @team.proposal )
+  %p
+    Proposal:
+    = link_to( @team.proposal.match('/([^/]*$)')[1], @team.proposal )
 
 %p
-  %b Recommendation:
+  Recommendation:
   =  @recommendation.recommendation
 %p
-  %b Font stack:
+  Font stack:
   = @recommendation.font_stack
 %p
-  %b Pull request url:
+  Pull request url:
   = @recommendation.pull_request_url
 
 %h3 Examples
