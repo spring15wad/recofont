@@ -21,13 +21,13 @@
     = link_to( @team.proposal.match('/([^/]*$)')[1], @team.proposal )
 
 %p
-  Recommendation:
+  %h3 Recommendation:
   =  @recommendation.recommendation
 %p
-  Font stack:
+  %h3 Font stack:
   = @recommendation.font_stack
 %p
-  Pull request url:
+  %h3 Pull request url:
   = @recommendation.pull_request_url
 
 %h3 Examples
@@ -35,11 +35,18 @@
   - if !@examples.empty?
     - @examples.each do |example|
       %li
-        = example.url.nil? ? 'none' : link_to( example.url , example.url)
+        = example.description.nil? ? example.recommendation_id : example.description
         %ul
           %li
-            = example.description.nil? ? example.recommendation_id : example.description
-
+            %p URL
+            = example.url.nil? ? 'none' : link_to( example.url , example.url)
+          %li
+            %p Attachment:
+            - if !example.attachment.nil?
+              = example.attachment.filename
+              = link_to button_tag('Download'), download_attachment_path(example.attachment.id)
+            - else
+              No attachment.
 %nav
   = link_to( button_tag('Change or modify team'), '/change_teams' )
   = link_to( button_tag('Logout'), '/logout' )
