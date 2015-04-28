@@ -1,6 +1,9 @@
 %p#notice= notice
 
 %p
+  %b ID:
+  = @example.id
+%p
   %b Description:
   = @example.description
 %p
@@ -10,8 +13,8 @@
   %b Recommendation:
   = @example.recommendation_id
 %p
-  %b Attacment:
-/  = @attachment.where("example_id = :example").nil? ? 'none' : @attachment.where("example_id = :example").first.filename
+  %b Attachment:
+  = @attachment.nil? ? 'none' : @attachment.filename
 
 = link_to 'Edit', edit_example_path(@example)
 \|

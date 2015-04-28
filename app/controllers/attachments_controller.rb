@@ -12,6 +12,16 @@ class AttachmentsController < ApplicationController
   def show
   end
 
+  def serve
+    @attachment = Attachment.find(params[:id])
+    send_data @attachment.filedata, filename: @attachment.filename, type: @attachment.mime_type, disposition: 'inline'
+  end
+  
+  def download
+    @attachment = Attachment.find(params[:id])
+    send_data @attachment.filedata, filename: @attachment.filename, type: @attachment.mime_type, disposition: 'attachment'
+  end
+
   # GET /attachments/new
   def new
     @attachment = Attachment.new
