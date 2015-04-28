@@ -9,6 +9,8 @@
 
 = render 'pickteam'
 
+= link_to 'Return to summary', summary_path
+
 %br
 
 %h3 All teams
@@ -41,4 +43,8 @@
 %br
 
 = link_to 'Edit Your Team', edit_team_path(@teams.find(@user.team_id))
+\|
 = link_to 'New Team', new_team_path
+\|
+= link_to 'Return to summary', summary_path
+
