@@ -17,13 +17,13 @@
   = link_to( @team.proposal.match('/([^/]*$)')[1], @team.proposal )
 
 %p
-  %b Recommendation:
+  %h3 Recommendation:
   =  @recommendation.recommendation
 %p
-  %b Font stack:
+  %h3 Font stack:
   = @recommendation.font_stack
 %p
-  %b Pull request url:
+  %h3 Pull request url:
   = @recommendation.pull_request_url
 
 %h3 Examples
