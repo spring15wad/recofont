@@ -1,29 +1,12 @@
 class ExamplesController < ApplicationController
   before_action :set_example, only: [:show, :edit, :update, :destroy]
 
-  def create
-    @item = Item.new
-    @item.file = params[:item][:file]
-    if item.save
-      redirect_to @item
-    else
-      render 'new'
-    end
-  end
-
-  def download
-    example = Examples.find(params[:id])
-    send_data example.filedata, filename: example.filename, type: example.mime_type, disposition: 'attachment'
-  end
-
   # GET /examples
-  # GET /examples.json
   def index
     @examples = Example.all
   end
 
   # GET /examples/1
-  # GET /examples/1.json
   def show
   end
 
@@ -37,43 +20,56 @@ class ExamplesController < ApplicationController
   end
 
   # POST /examples
-  # POST /examples.json
   def create
     @example = Example.new(example_params)
 
-    respond_to do |format|
-      if @example.save
-        format.html { redirect_to @example, notice: 'Example was successfully created.' }
-        format.json { render :show, status: :created, location: @example }
-      else
-        format.html { render :new }
-        format.json { render json: @example.errors, status: :unprocessable_entity }
-      end
+#    if params[:example][:data]
+#      t.filedata  = params[:example][:data].read
+#      t.filename  = params[:example][:data].original_filename
+#      t.mime_type = params[:example][:data].content_type
+#    end
+
+    if @example.save
+      redirect_to @example, notice: 'Example was successfully created.'
+    else
+      render :new
     end
   end
 
+#  def create
+#    @item = Item.new
+#    @item.file = params[:item][:file]
+#    if @item.save
+#      redirect_to @item
+#    else
+#      render 'new'
+#    end
+#  end
+
+#  def download
+#    @example = Examples.find(params[:id])
+#    send_data @example.filedata, filename: @example.filename, type: @example.mime_type, disposition: 'attachment'
+#  end
+
   # PATCH/PUT /examples/1
-  # PATCH/PUT /examples/1.json
   def update
-    respond_to do |format|
-      if @example.update(example_params)
-        format.html { redirect_to @example, notice: 'Example was successfully updated.' }
-        format.json { render :show, status: :ok, location: @example }
-      else
-        format.html { render :edit }
-        format.json { render json: @example.errors, status: :unprocessable_entity }
-      end
+#    if params[:example][:data]
+#      t.filedata  = params[:example][:data].read
+#      t.filename  = params[:example][:data].original_filename
+#      t.mime_type = params[:example][:data].content_type
+#    end
+
+    if @example.update(example_params)
+      redirect_to @example, notice: 'Example was successfully updated.'
+    else
+      render :edit
     end
   end
 
   # DELETE /examples/1
-  # DELETE /examples/1.json
   def destroy
     @example.destroy
-    respond_to do |format|
-      format.html { redirect_to examples_url, notice: 'Example was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to examples_url, notice: 'Example was successfully destroyed.'
   end
 
   private
@@ -85,6 +81,6 @@ class ExamplesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def example_params
-    params.require(:example).permit(:url, :file, :recommendation_id)
+    params.require(:example).permit(:description, :recommendation_id)
   end
 end

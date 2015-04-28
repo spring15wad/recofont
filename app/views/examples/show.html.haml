@@ -1,17 +1,17 @@
 %p#notice= notice
 
 %p
-  %b Url:
-  = @example.url
-%p
-  %b File:
-  = @example.file
-%p
   %b Description:
   = @example.description
 %p
+  %b Url:
+  = @example.url
+%p
   %b Recommendation:
   = @example.recommendation_id
+%p
+  %b Attacment:
+  = @example.attachment_id.nil? ? 'none' : @example.attachment_id
 
 = link_to 'Edit', edit_example_path(@example)
 \|

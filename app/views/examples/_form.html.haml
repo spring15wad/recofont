@@ -7,16 +7,16 @@
           %li= msg
 
   .field
-    = f.label :url
-    = f.text_field :url
-  .field
-    = f.label :file
-    = f.text_field :file
-  .field
     = f.label :description
     = f.text_field :description
   .field
+    = f.label :url
+    = f.text_field :url
+  .field
     = f.label :recommendation_id
     = f.number_field :recommendation_id
+  .field
+    = f.label :attachment_id
+    = f.number_field :attachment_id
   .actions
     = f.submit 'Save'
