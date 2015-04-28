@@ -1,11 +1,14 @@
-%h1 Choose or modify your team
+%h1 RecoFont
+%h2 Choose or modify your team
 
 .info
-  %p User:
-  = @user.username
+  %p
+    User:
+    = @user.username
 .info
-  %p Team:
-  = @teams.find(@user.team_id).project_name
+  %p
+    Team:
+    = @teams.find(@user.team_id).project_name
 
 = render 'pickteam'
 
@@ -23,7 +26,7 @@
       %th Proposal
       %th Team members
 
-      
+
   %tbody
     - @teams.each do |team|
       %tr
@@ -42,9 +45,8 @@
 
 %br
 
-= link_to 'Edit Your Team', edit_team_path(@teams.find(@user.team_id))
-\|
-= link_to 'New Team', new_team_path
-\|
-= link_to 'Return to summary', summary_path
+.nav
 
+  = link_to 'Edit Your Team', edit_team_path(@teams.find(@user.team_id))
+  = link_to 'Add New Team', new_team_path
+  = link_to 'Return to summary', summary_path
