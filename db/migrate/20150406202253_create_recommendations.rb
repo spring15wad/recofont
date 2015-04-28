@@ -1,7 +1,7 @@
 class CreateRecommendations < ActiveRecord::Migration
   def change
     create_table :recommendations do |t|
-      t.binary :recommendation
+      t.text :recommendation
       t.text :font_stack
       t.string :pull_request_url
       t.integer :team_id

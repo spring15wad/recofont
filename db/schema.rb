@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20150428014850) do
   end
 
   create_table "recommendations", force: :cascade do |t|
-    t.binary   "recommendation"
+    t.text     "recommendation"
     t.text     "font_stack"
     t.string   "pull_request_url"
     t.integer  "team_id"
