@@ -17,6 +17,12 @@ Rails.application.routes.draw do
 
   resources :teams
 
+  resources :attachments do
+    get "serve", :on => :member
+  end
+
+  resources :attachments
+
   get '/auth/:provider', to: lambda{|env| [404, {}, ["Not Found"]]}, as: 'login'
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy', as: 'logout'

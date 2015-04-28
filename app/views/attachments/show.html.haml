@@ -4,9 +4,6 @@
   %b Filename:
   = @attachment.filename
 %p
-  %b Filedata:
-  = @attachment.filedata
-%p
   %b Mime type:
   = @attachment.mime_type
 %p
@@ -16,3 +13,7 @@
 = link_to 'Edit', edit_attachment_path(@attachment)
 \|
 = link_to 'Back', attachments_path
+
+<hr />
+
+= image_tag serve_attachment_path(@attachment)
