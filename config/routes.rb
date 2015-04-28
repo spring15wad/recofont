@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get '/change_teams', to: 'teams#change', as: 'pick_team'
 
-#  get '/examples/:id/download', as: 'example_download'
+#  get '/attachments/:id/download', to: 'attachments#download', as: 'attachment_download'
 
   resources :users
 
@@ -18,7 +18,10 @@ Rails.application.routes.draw do
   resources :teams
 
   resources :attachments do
-    get "serve", :on => :member
+    member do
+      get :serve
+      get :download
+    end
   end
 
   resources :attachments
