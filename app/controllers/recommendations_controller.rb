@@ -16,7 +16,6 @@ class RecommendationsController < ApplicationController
 
   # GET /recommendations/summary
   def summary
-    #@ads = Ad.where(user_id: current_user.id)
     @user = User.where(uid: current_user.uid).take
     @team = Team.where(id: @user.team_id).take
     @recommendation = Recommendation.where(team_id: @user.team_id).take

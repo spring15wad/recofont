@@ -15,6 +15,7 @@
 %p
   %h3 Attachment:
   = @example.attachment.nil? ? 'none' : @example.attachment.filename
+  = link_to button_tag('Download'), download_attachment_path(@example.attachment.id)
 
 = link_to 'Edit', edit_example_path(@example)
 \|
