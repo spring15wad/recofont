@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Filename:
+  = @attachment.filename
+%p
+  %b Filedata:
+  = @attachment.filedata
+%p
+  %b Mime type:
+  = @attachment.mime_type
+%p
+  %b Example:
+  = @attachment.example
+
+= link_to 'Edit', edit_attachment_path(@attachment)
+\|
+= link_to 'Back', attachments_path

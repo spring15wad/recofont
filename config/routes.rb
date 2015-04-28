@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :attachments
+
   root 'teams#landing', as: 'landing'
 
   get '/summary', to: 'recommendations#summary', as: 'summary'

@@ -1,0 +1,22 @@
+= form_for @attachment do |f|
+  - if @attachment.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@attachment.errors.count, "error")} prohibited this attachment from being saved:"
+      %ul
+        - @attachment.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :filename
+    = f.text_field :filename
+  .field
+    = f.label :filedata
+    = f.text_field :filedata
+  .field
+    = f.label :mime_type
+    = f.text_field :mime_type
+  .field
+    = f.label :example
+    = f.text_field :example
+  .actions
+    = f.submit 'Save'

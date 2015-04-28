@@ -32,19 +32,9 @@ a {
 div {
   &.field, &.actions {
     margin-bottom: 10px;
-    display: inline-block;
-    padding: 0.375em 0.375em 0.375em 0.375em;
   }
 }
 
-.info, .info p {
-  display: inline-block;
-  padding: 0.375em 3.75em 0.375em 0.375em;
-}
-
-#alert {
-  color: red;
-}
 #notice {
   color: green;
 }
