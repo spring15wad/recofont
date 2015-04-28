@@ -3,6 +3,9 @@
 
 %p#notice= notice
 
+
+%h3 Member Info
+
 .info
   %p
     User:
@@ -20,15 +23,20 @@
     Proposal:
     = link_to( @team.proposal.match('/([^/]*$)')[1], @team.proposal )
 
-%p
-  %h3 Recommendation:
-  =  @recommendation.recommendation
-%p
-  %h3 Font stack:
-  = @recommendation.font_stack
-%p
-  %h3 Pull request url:
-  = @recommendation.pull_request_url
+%h3 Recommendations
+
+.recommendation
+  %p
+    Style:
+    =  @recommendation.recommendation
+.recommendation
+  %p
+    Font stack:
+    = @recommendation.font_stack
+.recommendation
+  %p
+    Pull request url:
+    = @recommendation.pull_request_url
 
 %h3 Examples
 %ul

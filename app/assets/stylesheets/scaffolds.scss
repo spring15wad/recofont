@@ -15,7 +15,7 @@ p, ol, ul, td {
 h1 {
 
   font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", "DejaVu Sans Condensed", sans-serif;
-  font-size: 2em;
+  font-size: 3em;
   line-height: 1.375em;
 
 }
@@ -24,6 +24,13 @@ h2 {
 
   font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", "DejaVu Sans Condensed", sans-serif;
   font-size: 1.375em;
+
+}
+
+h3 {
+
+  font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", "DejaVu Sans Condensed", sans-serif;
+  font-size: 1.125em;
 
 }
 
@@ -86,5 +93,13 @@ div {
 .info {
 
   font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", "DejaVu Sans Condensed", sans-serif;
+  color: red;
+
+}
+
+.recommendation {
+
+  font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", "DejaVu Sans Condensed", sans-serif;
+  color: purple;
 
 }
