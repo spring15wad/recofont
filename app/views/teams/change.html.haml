@@ -43,5 +43,7 @@
 
 %br
 
-= link_to 'Edit Your Team', edit_team_path(@teams.find(@user.team_id))
-= link_to 'New Team', new_team_path
+.nav
+
+  = link_to 'Edit Your Team', edit_team_path(@teams.find(@user.team_id))
+  = link_to 'Add New Team', new_team_path
