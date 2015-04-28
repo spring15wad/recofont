@@ -23,6 +23,7 @@ h1 {
 
 h2 {
 
+  color: #FC7863;
   font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", "DejaVu Sans Condensed", sans-serif;
   font-size: 1.375em;
 
@@ -45,11 +46,10 @@ pre {
 a {
   color: #000;
   &:visited {
-    color: #666;
+    color: #000;
   }
   &:hover {
-    color: #fff;
-    background-color: #000;
+    color: #FCCE63  ;
   }
 }
 
@@ -103,5 +103,12 @@ div {
 
   font-family: Arial, "Helvetica Neue", Helvetica, "Liberation Sans", "DejaVu Sans Condensed", sans-serif;
   color: #074600;
+
+}
+
+table  {
+
+  border-spacing: 10px;
+  border-collapse: separate;
 
 }

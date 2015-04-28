@@ -46,15 +46,17 @@
         = example.description.nil? ? example.recommendation_id : example.description
         %ul
           %li
-            %p URL
-            = example.url.nil? ? 'none' : link_to( example.url , example.url)
+            %p
+              URL
+              = example.url.nil? ? 'none' : link_to( example.url , example.url)
           %li
-            %p Attachment:
-            - if !example.attachment.nil?
-              = example.attachment.filename
-              = link_to button_tag('Download'), download_attachment_path(example.attachment.id)
-            - else
-              No attachment.
+            %p
+              Attachment:
+              - if !example.attachment.nil?
+                = example.attachment.filename
+                = link_to button_tag('Download'), download_attachment_path(example.attachment.id)
+              - else
+                No attachment.
 %nav
   = link_to( button_tag('Change or modify team'), '/change_teams' )
   = link_to( button_tag('Logout'), '/logout' )
