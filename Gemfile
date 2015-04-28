@@ -51,3 +51,14 @@ gem 'seed_dump'
 # Use GitHub's OmniAuth for user authentication
 gem 'omniauth'
 gem 'omniauth-github'
+
+# To support Heroku
+
+group :development, :test do
+  gem "sqlite3"
+end
+
+group :production do
+  gem "pg"
+  gem 'rails_12factor'
+end
