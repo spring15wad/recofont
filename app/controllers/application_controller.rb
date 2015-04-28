@@ -36,4 +36,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def allow_user
+    editors = ["170719", "5863302", "8574294", "8630916" ]
+    if !editors.include?(User.find(session[:user_id]).uid)
+      redirect_to(:back)
+    end
+  end
+
 end
