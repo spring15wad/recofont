@@ -1,5 +1,7 @@
 class AttachmentsController < ApplicationController
   before_action :set_attachment, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :allow_user, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /attachments
   # GET /attachments.json

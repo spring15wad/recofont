@@ -1,6 +1,7 @@
 class RecommendationsController < ApplicationController
   before_action :set_recommendation, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :allow_user, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /recommendations
   # GET /recommendations.json
