@@ -12,6 +12,9 @@ class RecommendationsController < ApplicationController
   # GET /recommendations/1
   # GET /recommendations/1.json
   def show
+    @recommendation = Recommendation.find(params[:id])
+    @team = Team.where(id: @recommendation.team_id).take
+    @examples = Example.where(recommendation: @recommendation).to_a
   end
 
   # GET /recommendations/summary
