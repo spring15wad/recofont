@@ -10,15 +10,15 @@
   %p Team:
   = @team.project_name
 .info
-  %p Proposal: 
-  = link_to( 'link', @team.proposal )
-.info
   %p Repository:
-  = link_to( @team.github_repo, @team.github_repo )
+  = link_to( @team.github_repo.match('g.*$')[0], @team.github_repo )
+.info
+  %p Proposal: 
+  = link_to( @team.proposal.match('/([^/]*$)')[1], @team.proposal )
 
 %p
   %b Recommendation:
-  =  link_to('Screenshot', @recommendation.recommendation )
+  =  @recommendation.recommendation
 %p
   %b Font stack:
   = @recommendation.font_stack
@@ -28,12 +28,13 @@
 
 %h3 Examples
 %ul
-  - @examples.each do |example|
-    %li
-      = example.url.nil? ? link_to('File', example.file) : link_to( example.url , example.url)
-      %ul
-        %li
-          = example.description.nil? ? example.recommendation_id : example.description
+  - if !@examples.empty?
+    - @examples.each do |example|
+      %li
+        = example.url.nil? ? 'none' : link_to( example.url , example.url)
+        %ul
+          %li
+            = example.description.nil? ? example.recommendation_id : example.description
 
 %nav
   = link_to( button_tag('Change or modify team'), '/change_teams' )
