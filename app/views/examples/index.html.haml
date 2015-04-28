@@ -5,6 +5,7 @@
     %tr
       %th Link
       %th Description
+      %th Attachment
       %th Recommendation
       %th
       %th
@@ -15,6 +16,7 @@
       %tr
         %td= example.url.nil? ? link_to('Download', example_download_path(example), disable_with: 'Downloading...') : link_to(example.url.match('[^/].+$',6)[0], example.url)
         %td= example.description
+        %td= example.attachment.nil? ? 'none' : example.attachment.filename
         %td= example.recommendation_id
         %td= link_to 'Show', example
         %td= link_to 'Edit', edit_example_path(example)

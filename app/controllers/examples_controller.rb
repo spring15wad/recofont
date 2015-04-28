@@ -6,12 +6,10 @@ class ExamplesController < ApplicationController
   # GET /examples
   def index
     @examples = Example.all
-    @attachment = Attachment.all
   end
 
   # GET /examples/1
   def show
-    @attachment = Attachment.where(example: @example).empty? ? nil : Attachment.where(example: @example).take
   end
 
   # GET /examples/new

@@ -1,21 +1,26 @@
 %p#notice= notice
 
 %p
-  %b ID:
+  %h3 ID:
   = @example.id
 %p
-  %b Description:
+  %h3 Description:
   = @example.description
 %p
-  %b Url:
+  %h3 Url:
   = @example.url
 %p
-  %b Recommendation:
+  %h3 Recommendation:
   = @example.recommendation_id
 %p
-  %b Attachment:
-  = @attachment.nil? ? 'none' : @attachment.filename
+  %h3 Attachment:
+  = @example.attachment.nil? ? 'none' : @example.attachment.filename
 
 = link_to 'Edit', edit_example_path(@example)
 \|
 = link_to 'Back', examples_path
+
+<hr />
+
+- if @example.attachment
+  = image_tag serve_attachment_path(@example.attachment)
