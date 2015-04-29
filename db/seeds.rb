@@ -1,5 +1,5 @@
 Attachment.create!([
-  {filename: "NA" , mime_type: "image/png", example_id: "2"}
+  {filename: "NA" , mime_type: "image/png", example_id: 2}
 ])
 Example.create!([
   {description: "none", url: "https://example.com", recommendation_id: 1},
