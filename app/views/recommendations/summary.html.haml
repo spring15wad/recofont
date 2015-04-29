@@ -17,14 +17,14 @@
 .info
   %p
     Repository:
-    - if team.id == 1
+    - if @team.id == 1
       = nada
     - else
-      = @team.id link_to( @team.github_repo.match('g.*$')[0], @team.github_repo )
+      = link_to( @team.github_repo.match('g.*$')[0], @team.github_repo )
 .info
   %p
     Proposal:
-    - if team.id == 1
+    - if @team.id == 1
       = nada
     - else
       = link_to( @team.proposal.match('/([^/]*$)')[1], @team.proposal )
