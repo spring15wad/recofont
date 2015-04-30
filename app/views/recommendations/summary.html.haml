@@ -17,32 +17,26 @@
 .info
   %p
     Repository:
-    - if @team.id == 1
-      = nada
-    - else
-      = link_to( @team.github_repo.match('g.*$')[0], @team.github_repo )
+    = @team.github_repo.nil? ? '' : @team.github_repo.match('g.*$')[0].nil? ? 'No URL' : link_to( @team.github_repo.match('g.*$')[0], @team.github_repo )
 .info
   %p
     Proposal:
-    - if @team.id == 1
-      = nada
-    - else
-      = link_to( @team.proposal.match('/([^/]*$)')[1], @team.proposal )
+    = @team.proposal.nil? ? '' : @team.proposal.match('/([^/]*$)')[1].nil? ? 'No URL' : link_to( @team.proposal.match('/([^/]*$)')[1], @team.proposal )
 
 %h3 Recommendations
 
 .recommendation
   %p
     Style:
-    =  @recommendation.recommendation
+    =  @recommendation.nil? ? '' : @recommendation.recommendation
 .recommendation
   %p
     Font stack:
-    = @recommendation.font_stack
+    = @recommendation.nil? ? '' : @recommendation.font_stack
 .recommendation
   %p
     Pull request url:
-    = @recommendation.pull_request_url
+    = @recommendation.pull_request_url.match('^http')[0].nil? : linkto( @recommendation.pull_request_url, @recommendation.pull_request_url)
 
 %h3 Examples
 %ul
@@ -54,7 +48,7 @@
           %li
             %p
               URL
-              = example.url.nil? ? 'none' : link_to( example.url , example.url)
+              = example.url.match('^http')[0].nil? ? 'none' : link_to( example.url , example.url)
           %li
             %p
               Attachment:
