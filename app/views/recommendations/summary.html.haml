@@ -17,11 +17,11 @@
 .info
   %p
     Repository:
-    = @team.github_repo.nil? ? '.' : @team.github_repo.match('g.*$')[0].nil? ? 'No URL' : link_to( @team.github_repo.match('g.*$')[0], @team.github_repo )
+    = @team.github_repo.nil? ? '.' : @team.github_repo.match('g.*$').nil? ? 'No URL' : link_to( @team.github_repo.match('g.*$')[0], @team.github_repo )
 .info
   %p
     Proposal:
-    = @team.proposal.nil? ? '.' : @team.proposal.match('/([^/]*$)')[1].nil? ? 'No URL' : link_to( @team.proposal.match('/([^/]*$)')[1], @team.proposal )
+    = @team.proposal.nil? ? '.' : @team.proposal.match('/([^/]*$)').nil? ? 'No URL' : link_to( @team.proposal.match('/([^/]*$)')[1], @team.proposal )
 
 %h3 Recommendations
 
@@ -36,7 +36,7 @@
 .recommendation
   %p
     Pull request url:
-    = @recommendation.pull_request_url.nil? ? '.' : @recommendation.pull_request_url.match('^http')[0].nil? ? @recommendation.pull_request_url : linkto( @recommendation.pull_request_url, @recommendation.pull_request_url)
+    = @recommendation.pull_request_url.nil? ? '.' : @recommendation.pull_request_url.match('^http').nil? ? @recommendation.pull_request_url : linkto( @recommendation.pull_request_url, @recommendation.pull_request_url)
 
 %h3 Examples
 %ul
@@ -48,7 +48,7 @@
           %li
             %p
               URL
-              = example.url.match('^http')[0].nil? ? 'none' : link_to( example.url , example.url)
+              = example.url.match('^http').nil? ? 'none' : link_to( example.url , example.url)
           %li
             %p
               Attachment:
