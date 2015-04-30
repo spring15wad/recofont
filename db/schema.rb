@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150428014850) do
+ActiveRecord::Schema.define(version: 20150430132722) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "filename"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20150428014850) do
 
   create_table "examples", force: :cascade do |t|
     t.text     "description"
-    t.string   "url"
+    t.string   "example_url"
     t.integer  "recommendation_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false

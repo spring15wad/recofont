@@ -8,14 +8,15 @@
   = @example.description
 %p
   %h3 Url:
-  = @example.url
+  = @example.example_url
 %p
   %h3 Recommendation:
   = @example.recommendation_id
 %p
   %h3 Attachment:
-  = @example.attachment.nil? ? 'none' : @example.attachment.filename
-  = link_to button_tag('Download'), download_attachment_path(@example.attachment.id)
+  - if !@example.attachment.nil?
+    = @example.attachment.nil? ? 'none' : @example.attachment.filename
+    = link_to button_tag('Download'), download_attachment_path(@example.attachment.id)
 
 = link_to 'Edit', edit_example_path(@example)
 \|

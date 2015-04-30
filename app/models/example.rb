@@ -4,7 +4,6 @@ class Example < ActiveRecord::Base
   belongs_to :team
   has_one :attachment
 
-  validates :url, format: { with: /\Ahttp/, message: ' – A valid URL you must enter.' }
-
+  validates :example_url, { allow_blank: "true", format: { with: /\Ahttp/, message: " – A valid URL you must enter." } }
 
 end

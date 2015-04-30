@@ -3,8 +3,8 @@
 %table
   %thead
     %tr
-      %th Link
       %th Description
+      %th Link
       %th Attachment
       %th Recommendation
       %th
@@ -14,8 +14,8 @@
   %tbody
     - @examples.each do |example|
       %tr
-        %td= example.url.nil? ? link_to('Download', example_download_path(example), disable_with: 'Downloading...') : link_to(example.url.match('[^/].+$',6)[0], example.url)
         %td= example.description
+        %td= example.example_url.blank? ? 'None' : link_to(example.example_url.match('http[s]*://(.*[^/])/*')[0], example.example_url)
         %td= example.attachment.nil? ? 'none' : example.attachment.filename
         %td= example.recommendation_id
         %td= link_to 'Show', example

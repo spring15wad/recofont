@@ -58,6 +58,6 @@ class ExamplesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def example_params
-    params.require(:example).permit(:description, :recommendation_id)
+    params.require(:example).permit(:description, :recommendation_id, :example_url)
   end
 end
