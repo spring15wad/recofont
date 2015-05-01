@@ -5,8 +5,8 @@
     %tr
       %th Description
       %th Link
-      %th Attachment
-      %th Recommendation
+      %th Attachment<br />Name
+      %th Recommendation ID &ndash;<br />Team ID &ndash; Project name
       %th
       %th
       %th
@@ -15,9 +15,14 @@
     - @examples.each do |example|
       %tr
         %td= example.description
-        %td= example.example_url.blank? ? 'None' : link_to(example.example_url.match('http[s]*://(.*[^/])/*')[0], example.example_url)
-        %td= example.attachment.nil? ? 'none' : example.attachment.filename
-        %td= example.recommendation_id
+        %td= example.example_url.blank? ? '–' : link_to(example.example_url.match('http[s]*://(.*[^/])/*')[0], example.example_url)
+        %td= example.attachment.nil? ? '–' : example.attachment.filename
+        %td
+          = example.recommendation_id
+          &#32;&ndash;&#32;
+          = example.recommendation.team_id
+          &#32;&ndash;&#32;
+          = Team.find(example.recommendation.team_id).project_name
         %td= link_to 'Show', example
         %td= link_to 'Edit', edit_example_path(example)
         %td= link_to 'Destroy', example, :method => :delete, :data => { :confirm => 'Are you sure?' }

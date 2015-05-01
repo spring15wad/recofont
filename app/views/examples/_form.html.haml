@@ -13,8 +13,8 @@
     = f.label :example_url
     = f.text_field :example_url
   .field
-    = f.label :recommendation_id
-    = f.number_field :recommendation_id
+    Associated recommendation’s team_ID
+    = f.collection_select :recommendation_id, Recommendation.order('team_id'), :id, 'team_id', prompt: true
   .actions
     = f.submit 'Save'
 

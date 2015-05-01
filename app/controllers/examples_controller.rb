@@ -10,6 +10,7 @@ class ExamplesController < ApplicationController
 
   # GET /examples/1
   def show
+    @example = Example.find(params[:id])
   end
 
   # GET /examples/new

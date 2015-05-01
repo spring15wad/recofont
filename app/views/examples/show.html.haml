@@ -10,8 +10,14 @@
   %h3 Url:
   = @example.example_url
 %p
-  %h3 Recommendation:
+  %h3 Recommendation ID:
   = @example.recommendation_id
+%p
+  %h3 Team ID:
+  = @example.recommendation.team_id
+%p
+  %h3 Project name:
+  = Team.find(@example.recommendation.team_id).project_name
 %p
   %h3 Attachment:
   - if !@example.attachment.nil?
