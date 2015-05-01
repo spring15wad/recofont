@@ -1,5 +1,9 @@
 %h1 New attachment
 
+%h3 
+  Attachment to example: 
+  = Example.find(params[:example_id]).description
+
 = render 'form'
 
-= link_to 'Back', attachments_path
+= link_to 'Back', examples_path
