@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   resources :examples
 
-  resources :teams
+  resources :teams, except: :destroy
 
   resources :attachments, except: :index do
     member do
