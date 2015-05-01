@@ -39,9 +39,9 @@
               = link_to button_tag('Download'), download_attachment_path(example.attachment.id)
             - else
               No attachment.
-              = link_to button_tag('New Attachment'), new_attachment_path
-            
-
+              = link_to button_tag('New Attachment'), new_attachment_path(example.attachment.id)
+  - else        
+    = link_to button_tag('New Example'), new_example_path
 
 
 
