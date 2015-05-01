@@ -57,7 +57,7 @@ class AttachmentsController < ApplicationController
   # DELETE /attachments/1.json
   def destroy
     @attachment.destroy
-    format.html { redirect_to examples_url, notice: 'Attachment was successfully destroyed.' }
+    format.html { redirect_to '/examples', notice: 'Attachment was successfully destroyed.' }
   end
 
   private
