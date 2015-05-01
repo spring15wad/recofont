@@ -23,6 +23,9 @@
   - if !@example.attachment.nil?
     = @example.attachment.nil? ? 'none' : @example.attachment.filename
     = link_to button_tag('Download'), download_attachment_path(@example.attachment.id)
+    = link_to button_tag('Destroy'), @example.attachment, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  - else
+    = link_to button_tag('Add attachment'), attach_to_example_path(@example.id)
 
 = link_to 'Edit', edit_example_path(@example)
 \|

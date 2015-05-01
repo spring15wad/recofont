@@ -10,9 +10,9 @@
   %b Example:
   = @attachment.example
 
-= link_to 'Edit', edit_attachment_path(@attachment)
+= link_to button_tag('Back'), examples_path
 \|
-= link_to 'Back', attachments_path
+= link_to button_tag('Destroy'), @example.attachment, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 <hr />
 
