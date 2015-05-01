@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
-  resources :attachments
 
   root 'teams#landing', as: 'landing'
 
   get '/summary', to: 'recommendations#summary', as: 'summary'
 
   get '/change_teams', to: 'teams#change', as: 'pick_team'
+
+  get '/attachments/new/:example_id', to: 'attachments#new',  as: 'attach_to_example'
+
+  get '/attachments', to: redirect('/examples'), as: 'attachments'
 
 #  get '/attachments/:id/download', to: 'attachments#download', as: 'attachment_download'
 
@@ -17,14 +20,12 @@ Rails.application.routes.draw do
 
   resources :teams
 
-  resources :attachments do
+  resources :attachments, except: :index do
     member do
       get :serve
       get :download
     end
   end
-
-  resources :attachments
 
   get '/auth/:provider', to: lambda{|env| [404, {}, ["Not Found"]]}, as: 'login'
   get '/auth/:provider/callback', to: 'sessions#create'
