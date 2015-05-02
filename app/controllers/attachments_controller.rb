@@ -47,9 +47,9 @@ class AttachmentsController < ApplicationController
     end
 
     if @attachment.save
-      format.html { redirect_to @attachment, notice: 'Attachment was successfully created.' }
+      redirect_to example_path(attachment_params[:example_id]), notice: 'Attachment was successfully created.'
     else
-      format.html { render :new }
+      render :new
     end
   end
 
@@ -57,7 +57,7 @@ class AttachmentsController < ApplicationController
   # DELETE /attachments/1.json
   def destroy
     @attachment.destroy
-    format.html { redirect_to '/examples', notice: 'Attachment was successfully destroyed.' }
+    redirect_to '/examples', notice: 'Attachment was successfully destroyed.'
   end
 
   private

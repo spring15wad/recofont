@@ -16,6 +16,7 @@ class ExamplesController < ApplicationController
   # GET /examples/new
   def new
     @example = Example.new
+    @example.recommendation_id = params[:recommendation_id]
   end
 
   # GET /examples/1/edit

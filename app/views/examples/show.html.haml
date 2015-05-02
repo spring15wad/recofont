@@ -29,7 +29,9 @@
 
 = link_to 'Edit', edit_example_path(@example)
 \|
-= link_to 'Back', examples_path
+= link_to 'Examples', examples_path
+\|
+= link_to 'Recommendation', recommendation_path(@example.recommendation_id)
 
 <hr />
 

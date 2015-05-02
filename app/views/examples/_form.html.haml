@@ -12,9 +12,12 @@
   .field
     = f.label :example_url
     = f.text_field :example_url
-  .field
-    Associated recommendation’s team_ID
-    = f.collection_select :recommendation_id, Recommendation.order('team_id'), :id, 'team_id', prompt: true
+  - if @example.recommendation_id.nil?
+    .field
+      Associated recommendation’s team_ID
+      = f.collection_select :recommendation_id, Recommendation.order('team_id'), :id, 'team_id', prompt: true
+  - else
+    = hidden_field(:example, :recommendation_id)
   .actions
     = f.submit 'Save'
 

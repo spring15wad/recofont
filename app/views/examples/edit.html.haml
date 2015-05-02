@@ -4,4 +4,11 @@
 
 = link_to 'Show', @example
 \|
-= link_to 'Back', examples_path
+= link_to 'Examples', examples_path
+\|
+= link_to 'Recommendation', recommendation_path(@example.recommendation_id)
+
+<hr />
+
+- if @example.attachment
+  = image_tag serve_attachment_path(@example.attachment)

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   get '/attachments', to: redirect('/examples'), as: 'attachments'
 
-#  get '/attachments/:id/download', to: 'attachments#download', as: 'attachment_download'
+  get '/examples/new/:recommendation_id', to: 'examples#new',  as: 'example_to_recommendation'
 
   resources :users
 

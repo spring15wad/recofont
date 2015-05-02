@@ -8,5 +8,6 @@
 
   .field
     = f.file_field :filedata
+    = hidden_field(:attachment, :example_id)
   .actions
     = f.submit 'Upload'
