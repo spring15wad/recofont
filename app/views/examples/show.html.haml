@@ -8,18 +8,30 @@
   = @example.description
 %p
   %h3 Url:
-  = @example.url
+  = @example.example_url
 %p
-  %h3 Recommendation:
+  %h3 Recommendation ID:
   = @example.recommendation_id
 %p
+  %h3 Team ID:
+  = @example.recommendation.team_id
+%p
+  %h3 Project name:
+  = Team.find(@example.recommendation.team_id).project_name
+%p
   %h3 Attachment:
-  = @example.attachment.nil? ? 'none' : @example.attachment.filename
-  = link_to button_tag('Download'), download_attachment_path(@example.attachment.id)
+  - if !@example.attachment.nil?
+    = @example.attachment.nil? ? 'none' : @example.attachment.filename
+    = link_to button_tag('Download'), download_attachment_path(@example.attachment.id)
+    = link_to button_tag('Destroy'), @example.attachment, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  - else
+    = link_to button_tag('Add attachment'), attach_to_example_path(@example.id)
 
 = link_to 'Edit', edit_example_path(@example)
 \|
-= link_to 'Back', examples_path
+= link_to 'Examples', examples_path
+\|
+= link_to 'Recommendation', recommendation_path(@example.recommendation_id)
 
 <hr />
 

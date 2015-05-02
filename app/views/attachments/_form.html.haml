@@ -7,10 +7,7 @@
           %li= msg
 
   .field
-    = f.label :example_id
-    = f.text_field :example_id
-  .field
-    = f.label :filedata
     = f.file_field :filedata
+    = hidden_field(:attachment, :example_id)
   .actions
     = f.submit 'Upload'

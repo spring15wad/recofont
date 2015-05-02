@@ -10,11 +10,13 @@ class ExamplesController < ApplicationController
 
   # GET /examples/1
   def show
+    @example = Example.find(params[:id])
   end
 
   # GET /examples/new
   def new
     @example = Example.new
+    @example.recommendation_id = params[:recommendation_id]
   end
 
   # GET /examples/1/edit
@@ -58,6 +60,6 @@ class ExamplesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def example_params
-    params.require(:example).permit(:description, :recommendation_id)
+    params.require(:example).permit(:description, :recommendation_id, :example_url)
   end
 end

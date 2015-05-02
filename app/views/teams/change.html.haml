@@ -30,18 +30,15 @@
   %tbody
     - @teams.each do |team|
       %tr
-        - if team.id == 1
-          = nada
-        - else
-          %td= team.project_name
-          %td= link_to(team.github_repo.match('g.*$')[0], team.github_repo)
-          %td= link_to(team.proposal.match('/[^/]*$')[0], team.proposal)
-          %td
-            %ul
-              - @team_members = @grouped_users.select { |k,v| k == team.id }
-              - @team_members.each do |team_id, grouped|
-                - grouped.each do |member|
-                  %li= member.username
+        %td= team.project_name
+        %td= link_to(team.github_repo.match('http[s]*://(.*[^/])/*')[1], team.github_repo)
+        %td= link_to(team.proposal.match('([^/]*[0-z]*)/*$')[1], team.proposal)
+        %td
+          %ul
+            - @team_members = @grouped_users.select { |k,v| k == team.id }
+            - @team_members.each do |team_id, grouped|
+              - grouped.each do |member|
+                %li= member.username
 
 %br
 

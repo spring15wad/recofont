@@ -1,19 +1,12 @@
-Attachment.create!([
-  {filename: "NA" , mime_type: "image/png", example_id: "2"}
-])
-Example.create!([
-  {description: "none", url: "https://example.com", recommendation_id: 1},
-  {description: "Foo and Bar.", url: "https://github.com/intridea/omniauth/blob/master/README.md", recommendation_id: 2 }
+Team.create!([
+  {project_name: "default", proposal: "http://www.example.com/", github_repo: "http://www.example.com/"}
 ])
 Recommendation.create!([
-  {recommendation: "none", font_stack: "none", pull_request_url: "none", team_id: 1},
-  {recommendation: "Be boldly boring.", font_stack: "font-family: Arial, \"Helvetica Neue\", Helvetica, \"Liberation Sans\", \"DejaVu Sans Condensed\", sans-serif;", pull_request_url: "https://github.com/spring15wad/recofont/pulls", team_id: 2}
+  {recommendation: "none", font_stack: "none", pull_request_url: "http://www.example.com/", team_id: 1}
 ])
-Team.create!([
-  {project_name: "default", proposal: "none", github_repo: "none"},
-  {project_name: "RollingRead", proposal: "https://github.com/spring15wad/metawad/blob/master/beta-app-proposal.md", github_repo: "https://github.com/spring15wad/rollingread"}
+Example.create!([
+  {description: "none", example_url: "https://example.com", recommendation_id: 1}
 ])
-User.create!([
-  {username: "mfreema5", uid: "5863302", provider: "github", team_id: 2},
-  {username: "Dan", uid: "8630916", provider: "github", team_id: 2}
+Attachment.create!([
+  {filename: "NA" , mime_type: "image/png", example_id: 1}
 ])

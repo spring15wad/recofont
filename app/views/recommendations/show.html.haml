@@ -15,7 +15,9 @@
 
 = link_to 'Edit', edit_recommendation_path(@recommendation)
 \|
-= link_to 'Back', recommendations_path
+= link_to 'Recommendations', recommendations_path
+\|
+= link_to 'Team', team_path(@recommendation.team_id)
 
 <hr />
 
@@ -24,23 +26,24 @@
   - if !@examples.empty?
     - @examples.each do |example|
       %li
-        = example.description.nil? ? example.recommendation_id : example.description
+        = example.description.blank? ? example.recommendation_id : example.description
         = link_to 'Edit example', edit_example_path(example.id)
         %ul
-          %li
-            %p URL
-            = example.url.nil? ? 'none' : link_to( example.url , example.url)
+          - if !example.example_url.blank?
+            %li
+              URL:
+              = example.example_url.blank? ? 'None' : link_to(example.example_url.match('http[s]*://(.*[^/])/*')[0], example.example_url)
+          - else
           %li
             %p Attachment:
             - if !example.attachment.nil?
               = example.attachment.filename
               = link_to button_tag('Download'), download_attachment_path(example.attachment.id)
-              = link_to button_tag('Destroy'), example.attachment, :method => :delete, :data => { :confirm => 'Are you sure?' }
             - else
               No attachment.
-              = link_to button_tag('New Attachment'), new_attachment_path
-            
-
+              = link_to( button_tag('Add attachment'), attach_to_example_path(example.id) )
+  <hr />
+  = link_to button_tag('Add Example'), example_to_recommendation_path(@recommendation.id)
 
 
 

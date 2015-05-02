@@ -27,6 +27,7 @@ class AttachmentsController < ApplicationController
   # GET /attachments/new
   def new
     @attachment = Attachment.new
+    @attachment.example_id = params[:example_id]
   end
 
 # # GET /attachments/1/edit
@@ -45,44 +46,18 @@ class AttachmentsController < ApplicationController
       end
     end
 
-    respond_to do |format|
-      if @attachment.save
-        format.html { redirect_to @attachment, notice: 'Attachment was successfully created.' }
-        format.json { render :show, status: :created, location: @attachment }
-      else
-        format.html { render :new }
-        format.json { render json: @attachment.errors, status: :unprocessable_entity }
-      end
+    if @attachment.save
+      redirect_to example_path(attachment_params[:example_id]), notice: 'Attachment was successfully created.'
+    else
+      render :new
     end
   end
-
-# # PATCH/PUT /attachments/1
-# # PATCH/PUT /attachments/1.json
-# def update
-#   if attachment_params[:filedata]
-#     @attachment.filedata  = attachment_params[:filedata].read
-#     @attachment.filename  = attachment_params[:filedata].original_filename
-#     @attachment.mime_type = attachment_params[:filedata].content_type
-#   end
-#   respond_to do |format|
-#     if @attachment.update(attachment_params)
-#       format.html { redirect_to @attachment, notice: 'Attachment was successfully updated.' }
-#       format.json { render :show, status: :ok, location: @attachment }
-#     else
-#       format.html { render :edit }
-#       format.json { render json: @attachment.errors, status: :unprocessable_entity }
-#     end
-#   end
-# end
 
   # DELETE /attachments/1
   # DELETE /attachments/1.json
   def destroy
     @attachment.destroy
-    respond_to do |format|
-      format.html { redirect_to attachments_url, notice: 'Attachment was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to '/examples', notice: 'Attachment was successfully destroyed.'
   end
 
   private
@@ -101,9 +76,4 @@ end
 
 
 
-#   if attachment_params[:data]
-#     @attachment.filedata  = attachment_params[:data].read
-#     @attachment.filename  = attachment_params[:data].original_filename
-#     @attachment.mime_type = attachment_params[:data].content_type
-#   end
 
