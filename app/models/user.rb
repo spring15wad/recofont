@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
     if @user = find_by_provider_and_uid(hash['provider'], hash['uid'])
       @user
     else
-      @user = create(username: hash['info']['name'], provider: hash['provider'], uid: hash['uid'], team_id: 1)
+      @user = create(username: hash['login'], provider: hash['provider'], uid: hash['uid'], team_id: 1)
     end
   end
 
