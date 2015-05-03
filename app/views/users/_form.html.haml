@@ -16,7 +16,7 @@
     = f.label :provider
     = f.text_field :provider
   .field
-    = f.label :team
-    = f.text_field :team
+    Team (by project name)
+    = f.collection_select :team_id, Team.order('project_name'), :id, :project_name, prompt: true
   .actions
     = f.submit 'Save'
