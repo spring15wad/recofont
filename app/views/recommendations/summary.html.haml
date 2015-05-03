@@ -25,18 +25,23 @@
 
 %h3 Recommendations
 
-.recommendation
-  %p
-    Style:
-    =  @recommendation.nil? ? 'None' : @recommendation.recommendation
-.recommendation
-  %p
-    Font stack:
-    = @recommendation.nil? ? 'None' : @recommendation.font_stack
-.recommendation
-  %p
-    Pull request url:
-    = @recommendation.pull_request_url.nil? ? 'None' : link_to( @recommendation.pull_request_url, @recommendation.pull_request_url )
+- if @recommendation.nil?
+  .recommendation
+    %p
+      No recommendation.
+- else
+  .recommendation
+    %p
+      Style:
+      =  @recommendation.nil? ? 'None' : @recommendation.recommendation
+  .recommendation
+    %p
+      Font stack:
+      = @recommendation.nil? ? 'None' : @recommendation.font_stack
+  .recommendation
+    %p
+      Pull request url:
+      = @recommendation.pull_request_url.nil? ? 'None' : link_to( @recommendation.pull_request_url, @recommendation.pull_request_url )
 
 %h3 Examples
 %ol
